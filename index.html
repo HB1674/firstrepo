@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만 고양이가 없는 슬픔</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f5f0f7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .cat-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .cat-icon:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background: #e84393;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #d22b6a;
+        }
+
+        .cat-count {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>나만 고양이가 없나 봐...</h1>
+        <p>모든 친구들이 고양이 자랑을 하는데</p>
+        <p>나는 유일하게 고양이 없는 사람...</p>
+        
+        <div class="cat-icon" title="냥냥이">🐈</div>
+        
+        <button class="btn" onclick="location.reload()">다시고양이생각하기</button>
+        
+        <div class="cat-count" id="catCount">고양이 보유 중: 0마리</div>
+    </div>
+
+    <script>
+        // 간단한 고양이 카운트 애니메이션
+        const count = 0;
+        document.getElementById('catCount').textContent = 
+            `고양이 보유 중: ${count}마리`;
+        
+        // 하트 클릭 시 효과
+        const catIcon = document.querySelector('.cat-icon');
+        catIcon.addEventListener('click', () => {
+            catIcon.style.transition = 'none';
+            catIcon.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                catIcon.style.transform = '';
+                catIcon.style.transition = 'all 0.3s ease';
+            }, 200);
+        });
+    </script>
+</body>
+</html>
